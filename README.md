@@ -21,7 +21,7 @@ This project serves as a demo for Beyonnex, showcasing the usage of Playwright, 
 1. Run the demo script for webkit:
 
     ```bash
-    npx playwright test --project='chromium'
+    npx playwright test --project='chromium' --headed
     ```
 
 2. Run the demo for all browsers:
@@ -56,7 +56,7 @@ This project serves as a demo for Beyonnex, showcasing the usage of Playwright, 
 
 ## Troubleshooting:
 
-- [Error: Cannot find module '@playwright/test'](https://github.com/microsoft/playwright/issues/23098#issuecomment-1553296173)
+- [Error: Cannot find module '@playwright/test'](https://github.com/microsoft/playwright/issues/23098#issuecomment-1553296173): read article
 
 
 ## Project stages
