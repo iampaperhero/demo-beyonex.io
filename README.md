@@ -24,7 +24,7 @@ This project serves as a demo for Beyonnex, showcasing the usage of Playwright, 
     npx playwright test --project='chromium'
     ```
 
-2. Run the demo for all browsers (can be fragile 🙂 ):
+2. Run the demo for all browsers:
 
     ```bash
     npx playwright test
@@ -53,3 +53,7 @@ This project serves as a demo for Beyonnex, showcasing the usage of Playwright, 
 ## Credits
 
 - [Oleksandr Timochko](https://www.linkedin.com/in/alexander-timochko/): Senior Quality Assurance Test Engineer.
+
+## Project stages
+
+- ![](https://i.etsystatic.com/13439930/r/il/11c715/4671538275/il_570xN.4671538275_18t6.jpg)
