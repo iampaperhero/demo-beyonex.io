@@ -1,5 +1,6 @@
 import { Page, expect } from "@playwright/test";
 import { Product } from "../interfaces/product.interface";
+import { ProductHelper } from "../utils/product.helper";
 
 export class BasePage {
 
@@ -20,17 +21,11 @@ export class BasePage {
         await this.base.goto("https://weathershopper.pythonanywhere.com/");
     }
 
-    private async removeIndexesFromProducts(listOfProducts: Product[]): Promise<Product[]> {
-        const productsWithoutIndex:
-            Omit<Product, `index`>[] = listOfProducts.map(({ index, ...rest }) => rest);
-        return productsWithoutIndex as Product[];
-    }
-
     async assertProductsInCartAreTheSameAsSelected(
         initiallySelected: Product[],
         productsInCart: Product[]) {
-        const expectedListOfProducts = this.removeIndexesFromProducts(initiallySelected);
-        const actualListOfProducts = this.removeIndexesFromProducts(productsInCart);
+        const expectedListOfProducts = ProductHelper.removeIndexesFromProducts(initiallySelected);
+        const actualListOfProducts = ProductHelper.removeIndexesFromProducts(productsInCart);
         expect(actualListOfProducts, `Products in card are not the same to selected before`)
         .toEqual(expectedListOfProducts);
     }

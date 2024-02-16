@@ -1,5 +1,7 @@
-node_modules/
-/test-results/
+# node_modules/ explicitly commented just to simplify 
+# local run for those who don't have all modules installed
+#/
+test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/

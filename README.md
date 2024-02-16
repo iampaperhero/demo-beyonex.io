@@ -54,6 +54,11 @@ This project serves as a demo for Beyonnex, showcasing the usage of Playwright, 
 
 - [Oleksandr Timochko](https://www.linkedin.com/in/alexander-timochko/): Senior Quality Assurance Test Engineer.
 
+## Troubleshooting:
+
+- [Error: Cannot find module '@playwright/test'](https://github.com/microsoft/playwright/issues/23098#issuecomment-1553296173)
+
+
 ## Project stages
 
 - ![](https://i.etsystatic.com/13439930/r/il/11c715/4671538275/il_570xN.4671538275_18t6.jpg)

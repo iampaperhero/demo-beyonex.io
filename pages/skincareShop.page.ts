@@ -17,6 +17,7 @@ export class SkincareShop extends BasePage {
         this.addButton = this.skincareShop.locator(`//button[text()='Add']`);
     }
 
+    //TODO: move to helpers with similar method from checkout page
     private async getAllItemsAttribute(): Promise<Product[]> {
         await this.waitForPageLoad();
 

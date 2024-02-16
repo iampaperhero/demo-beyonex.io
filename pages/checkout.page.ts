@@ -2,6 +2,7 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./base.page";
 import { Product } from "../interfaces/product.interface";
 import { StripeFrame } from "./components/stripe.frame";
+import { ProductHelper } from "../utils/product.helper";
 
 export class Checkout extends BasePage {
 
@@ -15,6 +16,7 @@ export class Checkout extends BasePage {
         super.waitForPageLoad();
     }
 
+    //TODO: move to helpers with similar method from skincare page
     async getProductsFromCart(): Promise<Product[]>{
         await this.waitForPageLoad();
 
