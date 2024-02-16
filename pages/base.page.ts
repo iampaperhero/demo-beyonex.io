@@ -6,8 +6,8 @@ export class BasePage {
     constructor(public base: Page) {}
 
     protected async waitForPageLoad() {
-        await this.base.waitForLoadState('domcontentloaded');
-        await this.base.waitForLoadState('networkidle');
+        await this.base.waitForLoadState(`domcontentloaded`);
+        await this.base.waitForLoadState(`networkidle`);
     }
 
     async open() {
@@ -22,7 +22,7 @@ export class BasePage {
 
     private async removeIndexesFromProducts(listOfProducts: Product[]): Promise<Product[]> {
         const productsWithoutIndex:
-            Omit<Product, 'index'>[] = listOfProducts.map(({ index, ...rest }) => rest);
+            Omit<Product, `index`>[] = listOfProducts.map(({ index, ...rest }) => rest);
         return productsWithoutIndex as Product[];
     }
 
@@ -31,11 +31,12 @@ export class BasePage {
         productsInCart: Product[]) {
         const expectedListOfProducts = this.removeIndexesFromProducts(initiallySelected);
         const actualListOfProducts = this.removeIndexesFromProducts(productsInCart);
-        expect(actualListOfProducts).toEqual(expectedListOfProducts);
+        expect(actualListOfProducts, `Products in card are not the same to selected before`)
+        .toEqual(expectedListOfProducts);
     }
 
     async assertPaymentIsSuccesfull(paymentState: boolean){
-        expect(paymentState).toBeTruthy();
+        expect(paymentState, `Payment is not successfull`).toBeTruthy();
     }
 
 }

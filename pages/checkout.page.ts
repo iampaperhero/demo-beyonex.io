@@ -10,12 +10,12 @@ export class Checkout extends BasePage {
 
     constructor(private checkout: Page) {
         super(checkout);
-        this.payWithCardButton = this.checkout.locator("//button");
-        this.items = this.checkout.locator("//tbody/tr");
+        this.payWithCardButton = this.checkout.locator(`//button`);
+        this.items = this.checkout.locator(`//tbody/tr`);
         super.waitForPageLoad();
     }
 
-    async getProductsInCart(): Promise<Product[]>{
+    async getProductsFromCart(): Promise<Product[]>{
         await this.waitForPageLoad();
 
         const allItems = await this.items.all();

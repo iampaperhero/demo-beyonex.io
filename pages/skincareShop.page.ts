@@ -13,8 +13,8 @@ export class SkincareShop extends BasePage {
 
     constructor(private skincareShop: Page) {
         super(skincareShop);
-        this.cartButton = this.skincareShop.locator("//button[@OnClick='goToCart()']");
-        this.addButton = this.skincareShop.locator("//button[text()='Add']");
+        this.cartButton = this.skincareShop.locator(`//button[@OnClick='goToCart()']`);
+        this.addButton = this.skincareShop.locator(`//button[text()='Add']`);
     }
 
     private async getAllItemsAttribute(): Promise<Product[]> {
@@ -42,7 +42,7 @@ export class SkincareShop extends BasePage {
         return parsedProducts
     }
 
-    async getLeastExpensiveProductIndex(contentType: MoisturizersContents | SunscreenTypes) {
+    async selectLeastExpensiveProductIndex(contentType: MoisturizersContents | SunscreenTypes) {
 
         const parsedProducts = await this.getAllItemsAttribute();
 

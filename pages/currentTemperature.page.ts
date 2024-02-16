@@ -9,7 +9,7 @@ export class CurrentTemperature extends BasePage {
 
     constructor(private currentTemperature: Page) {
         super(currentTemperature);
-        this.temperatureLabel = this.currentTemperature.locator("//span[@id='temperature']");
+        this.temperatureLabel = this.currentTemperature.locator(`//span[@id='temperature']`);
         this.buyButton = (id: Skincare) => this.currentTemperature.locator(`//button[text()="Buy ${id}"]`);
     }
 

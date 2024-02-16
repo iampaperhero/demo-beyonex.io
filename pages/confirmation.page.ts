@@ -7,7 +7,7 @@ export class Confirmation extends BasePage {
 
     constructor(private confirmation: Page){
         super(confirmation);
-        this.headerLabel = confirmation.locator("//h2[text()='PAYMENT SUCCESS']");
+        this.headerLabel = confirmation.locator(`//h2[text()='PAYMENT SUCCESS']`);
     }
 
     async isSuccessfulPayment(): Promise<boolean>{

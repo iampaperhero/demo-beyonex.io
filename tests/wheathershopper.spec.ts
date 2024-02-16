@@ -48,13 +48,13 @@ for (const [skincare, firstProduct, secondProduct] of testCases) {
 
     const skincareShopPage = await currentTemperaturePage.selectSkincareProduct(skincare);
 
-    await skincareShopPage.getLeastExpensiveProductIndex(firstProduct);
-    await skincareShopPage.getLeastExpensiveProductIndex(secondProduct);
+    await skincareShopPage.selectLeastExpensiveProductIndex(firstProduct);
+    await skincareShopPage.selectLeastExpensiveProductIndex(secondProduct);
 
     const expectedListOfProducts = skincareShopPage.selectedProducts;
     const checkoutPage = await skincareShopPage.clickCartButton();
 
-    const actualListOfProducts = await checkoutPage.getProductsInCart();
+    const actualListOfProducts = await checkoutPage.getProductsFromCart();
 
     /**
     * Verify that the shopping cart looks correct. 
@@ -77,7 +77,7 @@ for (const [skincare, firstProduct, secondProduct] of testCases) {
       faker.helpers.arrayElement(
         [5200828282828210, 4242424242424242, 6200000000000005, 3566002020360505]),
       // random month with 0 at begining if month from Januar to September as must be 2-digit
-      faker.number.int({ min: currentMonth + 1, max: 12 }).toString().padStart(2, '0') +
+      faker.number.int({ min: currentMonth + 1, max: 12 }).toString().padStart(2, `0`) +
       // random future year comparing to current sliced to last two digits
       faker.date.future().getFullYear().toString().slice(-2),
       // random CVC 3-digit code 
