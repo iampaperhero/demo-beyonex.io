@@ -1,13 +1,12 @@
 import { test } from '@playwright/test';
 import { faker } from '@faker-js/faker/locale/en';
-import { CurrentTemperature } from './pages/currentTemperature.page';
-import { SunscreenTypes } from './enums/sunscreenTypes';
-import { MoisturizersContents } from './enums/moisturizersContents';
-import { Skincare } from './enums/skincare';
+import { CurrentTemperature } from '../pages/currentTemperature.page';
+import { SunscreenTypes } from '../enums/sunscreenTypes';
+import { MoisturizersContents } from '../enums/moisturizersContents';
+import { Skincare } from '../enums/skincare';
 
 let currentTemperaturePage: CurrentTemperature;
 let currentMonth: number;
-const stripeCardNumber = 4242424242424242;
 
 test.beforeEach(async ({ page }) => {
   currentMonth = new Date().getMonth();
@@ -71,8 +70,12 @@ for (const [skincare, firstProduct, secondProduct] of testCases) {
     const stripeFrame = await checkoutPage.clickPayWithCard();
 
     await stripeFrame.enterCardData(
-      faker.internet.email({ provider: `beyonnex.io` }), // random email with pre-defined domain
-      stripeCardNumber, // hardcoded card number as only one known test example
+      // random email with pre-defined domain
+      faker.internet.email({ provider: `beyonnex.io` }), 
+      // hardcoded 16-digit card number examples from https://docs.stripe.com/testing 
+      // to demonstrate ability of using custom faker values
+      faker.helpers.arrayElement(
+        [5200828282828210, 4242424242424242, 6200000000000005, 3566002020360505]),
       // random month with 0 at begining if month from Januar to September as must be 2-digit
       faker.number.int({ min: currentMonth + 1, max: 12 }).toString().padStart(2, '0') +
       // random future year comparing to current sliced to last two digits
